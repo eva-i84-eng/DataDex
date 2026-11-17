@@ -1,0 +1,25 @@
+{{ template "header.html" . }}
+
+<main class="container">
+    <section class="hero">
+        <h1>Bienvenue sur DataDex : Genshin Impact</h1>
+        <p>Explorez les personnages, les armes et les éléments de Teyvat.</p>
+        <a href="/collection" class="btn-primary">Découvrir la collection</a>
+    </section>
+
+    <section class="featured">
+        <h2>Personnages à la une</h2>
+        <div class="cards-grid">
+            {{ range .FeaturedCharacters }}
+            <article class="character-card">
+                <img src="https://enka.network/ui/UI_AvatarIcon_{{ .Key }}.png" alt="{{ .Name }}">
+                <h3>{{ .Name }}</h3>
+                <p>{{ .ElementText }} • {{ .WeaponText }}</p>
+                <a href="/details?name={{ .Key }}">Voir les détails</a>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+</main>
+
+{{ template "footer.html" . }}
